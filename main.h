@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
+
+#define CONVERSION "cdsiouxXfFgG"
 /**
   * struct f_operator - a structure for specifier
   * and operator functiom pointer
