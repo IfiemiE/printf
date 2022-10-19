@@ -19,6 +19,7 @@ int count_print(char *f, int i, int j, va_list *p)
 		return (0);
 	}
 	Funct = get_op(f[j]);
+
 	start = f + i;
 	stop = f + j;
 	if (f[j] == '%')
@@ -57,12 +58,21 @@ int _printf(const char *format, ...)
 		else
 		{
 			j = i + 1;
-			while (ismember(format[j], CONVERSION) == 0)
-				j++;
-			count = count + count_print((char *)format, i, j, vptr);
+			if ((ismember(format[j], CONVERSION) == 1) && (format[j] != '\0'))
+			{
+				count = count + count_print((char *)format, i, j, vptr);
+			}
+			else if ((format[j] != ' ') && (format[j] != '\0'))
+			{
+				_putchar(format[i]);
+				count++;
+				_putchar(format[j]);
+				count++;
+			}
 			i = j;
 		}
-		i++;
+		if (format[i] != '\0')
+			i++;
 	}
 	va_end(ptr);
 	va_end(*vptr);

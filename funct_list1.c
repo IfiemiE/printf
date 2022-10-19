@@ -38,9 +38,8 @@ int format_s(const char *start, const char *stop, va_list *ptr)
 
 	for (i = 0; (start + i) != stop; i++)
 		break;
-/*
- * simple case, without other specifiers besides conversion
- */
+	if (s == NULL)
+		s = "(null)";
 	_puts(s);
 	count = _strlen(s);
 	return (count);
