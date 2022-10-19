@@ -13,10 +13,10 @@ int count_print(char *f, int i, int j, va_list *p)
 	char *start, *stop;
 	int count = 0;
 
-	if (f[0] != '%')
+	if (f[i] != '%')
 	{
 		_puts("Error\n");
-		return (0);
+		exit(-1);
 	}
 	Funct = get_op(f[j]);
 
