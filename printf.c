@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 	int i, j, count = 0;
 	va_list ptr, *vptr;
 	char Non_Printable[] = {'\n', '\t', '\a'};
-	char CONVERSION = "aAcdsiouxXfFgGmp";
+	char *CONVERSION = "aAcdsiouxXfFgGmp";
 
 	va_start(ptr, format);
 	vptr = &ptr;
