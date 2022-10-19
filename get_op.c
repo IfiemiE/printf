@@ -10,6 +10,8 @@ int (*get_op(char ch))(const char *, const char *, va_list *)
 	f_operator f_op[] = {
 		{'c', format_c},
 		{'s', format_s},
+		{'d', format_i},
+		{'i', format_i},
 		{'\0', NULL}
 	};
 	int i = 0;

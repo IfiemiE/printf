@@ -18,7 +18,7 @@ typedef struct f_operator
 	int (*format_op)(const char *, const char *, va_list *);
 } f_operator;
 
-void _putchar(char);
+int _putchar(char);
 void _puts(char *);
 int _strlen(char *);
 int _printf(const char *format, ...);
@@ -26,7 +26,7 @@ int ismember(const char, const char *);
 int (*get_op(char))(const char *, const char *, va_list *);
 int format_s(const char *, const char *, va_list *);
 int format_c(const char *, const char *, va_list *);
-
+int format_i(const char *, const char *, va_list *);
 
 
 

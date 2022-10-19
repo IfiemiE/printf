@@ -1,28 +1,5 @@
 #include "main.h"
-/**
-  * _strlen - computes number of characters in a string
-  * @str: given string
-  * Return: computed length
-  */
-int _strlen(char *str)
-{
-	int len = 0, i;
 
-	for (i = 0; str[i] != '\0'; i++)
-		len++;
-	return (len);
-}
-/**
-  * _puts - prints string
-  * @str: given string
-  */
-void _puts(char *str)
-{
-	int i;
-
-	for (i = 0; str[i] != '\0'; i++)
-		_putchar(str[i]);
-}
 /**
   * format_s - prints a string and computes number of
   * printed character
@@ -64,5 +41,47 @@ int format_c(const char *start, const char *stop, va_list *ptr)
 		break;
 	_putchar(c);
 	count++;
+	return (count);
+}
+/**
+  * format_i - prints digits of a number and computes number of
+  * printed character
+  * @start: pointer to first character in format
+  * @stop: pointer to last character in format
+  * @ptr: pointer to a recieved variable list
+  * Return: number of printed character
+  */
+int format_i(const char *start, const char *stop, va_list *ptr)
+{
+	int n = va_arg(*ptr, int);
+	int i, N, r, k, count = 0, p = 1;
+
+	for (i = 0; (start + i) != stop; i++)
+		break;
+
+	if (n > 0)
+		k = 1;
+	else
+		k = -1;
+	N = n;
+	while ((N > 9) || (N < -9))
+	{
+		N = N / 10;
+		p = p * 10;
+	}
+	if (n < 0)
+	{
+		_putchar('-');
+		count++;
+	}
+	N = n;
+	do {
+		r = k * (N / p);
+		r = r % 10;
+		_putchar('0' + r);
+		count++;
+		p = p / 10;
+	} while (p > 0);
+
 	return (count);
 }
