@@ -54,7 +54,7 @@ int format_c(const char *start, const char *stop, va_list *ptr)
 int format_i(const char *start, const char *stop, va_list *ptr)
 {
 	int n = va_arg(*ptr, int);
-	int i, N, r, k, count = 0, p = 1;
+	int N, i, r, k, t = 0, count = 0, p = 1;
 
 	for (i = 0; (start + i) != stop; i++)
 		break;
@@ -64,7 +64,7 @@ int format_i(const char *start, const char *stop, va_list *ptr)
 	else
 		k = -1;
 	N = n;
-	while ((N > 9) || (N < -9))
+	while ((N > 9) || (9 < -N))
 	{
 		N = N / 10;
 		p = p * 10;
@@ -80,6 +80,12 @@ int format_i(const char *start, const char *stop, va_list *ptr)
 		r = r % 10;
 		_putchar('0' + r);
 		count++;
+		t++;
+		if ((t == 1) && (n < 0))
+		{
+			N = k * r * p - N;
+			k = 1;
+		}
 		p = p / 10;
 	} while (p > 0);
 
