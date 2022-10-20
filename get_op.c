@@ -12,6 +12,7 @@ int (*get_op(char ch))(const char *, const char *, va_list *)
 		{'s', format_s},
 		{'d', format_i},
 		{'i', format_i},
+		{'b', format_b},
 		{'\0', NULL}
 	};
 	int i = 0;

@@ -91,3 +91,36 @@ int format_i(const char *start, const char *stop, va_list *ptr)
 
 	return (count);
 }
+/**
+  * format_b - prints digits of a number in binary and computes number of
+  * printed character
+  * @start: pointer to first character in format
+  * @stop: pointer to last character in format
+  * @ptr: pointer to a recieved variable list
+  * Return: number of printed character
+  */
+int format_b(const char *start, const char *stop, va_list *ptr)
+{
+	unsigned int n = va_arg(*ptr, unsigned int);
+	int i, r, count = 0, p = 1;
+	unsigned int N;
+
+	for (i = 0; (start + i) != stop; i++)
+		break;
+	N = n;
+	while (N > 1)
+	{
+		N = N / 2;
+		p = p * 2;
+	}
+	N = n;
+	do {
+		r = N / p;
+		r = r % 2;
+		_putchar('0' + r);
+		count++;
+		p = p / 2;
+	} while (p > 0);
+
+	return (count);
+}

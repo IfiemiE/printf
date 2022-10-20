@@ -27,6 +27,7 @@ int (*get_op(char))(const char *, const char *, va_list *);
 int format_s(const char *, const char *, va_list *);
 int format_c(const char *, const char *, va_list *);
 int format_i(const char *, const char *, va_list *);
+int format_b(const char *, const char *, va_list *);
 
 
 

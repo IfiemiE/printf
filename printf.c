@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 {
 	int i, j, count = 0;
 	va_list ptr, *vptr;
-	char *CONVERSION = "aAcdsiouxXfFgGmp%";
+	char *CONVERSION = "aAcdsiouxXfFgGmpb%";
 
 	va_start(ptr, format);
 	vptr = &ptr;
